@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammed Işık | XP CV</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Geri Dön Butonu Stili */
+.back-button {
+  width: 40px;
+  height: 40px;
+  background-image: url('assets/geri.png'); /* Geri ok ikonunu assets klasörüne eklemeniz lazım */
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin-bottom: 12px;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+}
+
+  </style>
+</head>
+<body>
+  
+ <!-- Splash ekranı -->
+<div id="splash-screen">
+  <div class="splash-inner">
+    <div class="splash-content">
+      <img src="assets/basla.gif" alt="XP Başlatılıyor..." />
+      <p class="loading-text">Muhammed Işık CV yükleniyor...</p>
+    </div>
+  </div>
+</div>
+<!-- Giriş Ekranı -->
+<div id="login-screen" style="display: none;">
+  <div class="xp-login-full">
+    <!-- Sağ taraf: profil kutusu -->
+    <div class="xp-login-right">
+      <div class="login-box" onclick="loginUser()">
+        <img src="assets/profile.jpg" alt="Profil Foto" class="login-avatar" />
+        <h2>Muhammed Işık</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- XP Açılış Sesi -->
+<audio id="startupSound" src="assets/windows-startup.mp3"></audio>
+
+
+
+
+
+
+  <!-- Masaüstü -->
+  <div class="desktop">
+    <img src="assets/desktop-bg.jpg" alt="xp background" class="background" />
+
+    <!-- Masaüstü ikonları -->
+    <div class="icon" onclick="openWindow('about')">
+      <img src="assets/hakkımda.png" />
+      <span>Hakkımda</span>
+    </div>
+
+    <div class="icon" onclick="openWindow('projects')">
+      <img src="assets/projects.png" />
+      <span>Projeler</span>
+    </div>
+
+    <div class="icon" onclick="openWindow('contact')">
+      <img src="assets/iletisim.jpg" />
+      <span>İletişim</span>
+    </div>
+
+   <!-- Hakkımda Penceresi -->
+<div class="window" id="about" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'about')">
+    <span>Hakkımda</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('about')">🗕</button>
+      <button onclick="maximizeWindow('about')">🗖</button>
+      <button onclick="closeWindow('about')">❌</button>
+    </div>
+  </div>
+  <div class="content about-content">
+    <div class="about-wrapper">
+      <div class="profile-card">
+        <img src="assets/profile.jpg" class="profile-img" alt="Profil Foto" />
+        <h2>Muhammed Işık</h2>
+        <p class="title">Yazılım Mühendisi</p>
+        <h4>Uygulama Yazdığım Diller</h4>
+        <div class="skill-tags">
+          <span>Python</span>
+          <span>Java</span>
+          <span>Kotlin</span>
+          <span>C#</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>SQL</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+
+      <div class="about-description">
+        <h4>Hakkımda</h4>
+        <p>
+          Yazılım Mühendisliği lisans eğitimimi tamamladım ve teknoloji
+ alanındaki gelişmeleri yakından takip etmeye, yeni bilgiler öğrenmeye
+ her zaman açık bir yazılım geliştiriciyim. Özellikle yapay zeka ve mobil
+ uygulama geliştirme konularına yoğun bir ilgi duyuyor; bu alanlarda
+ kendimi derinlemesine geliştirmeyi hedefliyorum. Üniversite
+ eğitimim süresince bu ilgi alanlarım doğrultusunda çeşitli dersler
+ aldım ve teorik bilgilerimi pek çok projede pratiğe dökme imkânı
+ buldum.
+        </p>
+        <p>
+          Yapay zeka alanında; makine öğrenmesi, doğal dil işleme ve görüntü
+ tanıma gibi konularda projelerde yer alarak deneyim kazandım. Mobil
+ uygulama geliştirme tarafında ise özellikle Java ve Kotlin kullanarak
+ kullanıcı odaklı mobil uygulamalar geliştirdim.
+ Ayrıca Barutçu Tekstil’de gerçekleştirdiğim staj süresince, pazarlama
+ departmanının kullanabileceği bir stok takip sistemi geliştirdim.
+ ASP.NET Web Forms teknolojisiyle ve SQL Server veritabanı
+ altyapısıyla oluşturduğum bu sistem, ürün hazırlık ve planlama
+ ekiplerinin iş süreçlerini kolaylaştırmayı hedefleyen, filtreleme ve
+ kullanıcı etkileşimine açık web tabanlı bir platformdur. Bu proje
+ sayesinde hem kurumsal yazılım geliştirme deneyimi kazandım hem
+ de gerçek dünya problemlerine yönelik etkin çözümler üretme
+ yetkinliğimi geliştirdim.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="window" id="contact" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'contact')">
+    <span>İletişim</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('contact')">🗕</button>
+      <button onclick="maximizeWindow('contact')">🗖</button>
+      <button onclick="closeWindow('contact')">❌</button>
+    </div>
+  </div>
+  <div class="content contact-content">
+    <div class="contact-container">
+      <h2>📞 İletişim Bilgilerim</h2>
+      <p>Her zaman iletişime geçmekten çekinmeyin! 😊</p>
+      <div class="contact-card">
+        <ul>
+          <li><span>📧 Email:</span> <a href="mailto:muhammed164908@icloud.com">muhammed164908@icloud.com</a></li>
+          <li><span>📱 Telefon:</span> +90 539 896 49 07</li>
+          <li><span>🏠 Adres:</span> Akçağlayan Mahallesi Karataş Sokak No:7 Yıldırım/Bursa</li>
+          <li><span>💻 GitHub:</span> <a href="https://github.com/Mhmmdbey" target="_blank">github.com/Mhmmdbey</a></li>
+          <li><span>🔗 LinkedIn:</span> <a href="https://linkedin.com/in/muhammed-ısık" target="_blank">linkedin.com/in/muhammed-ısık</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- XP GÖREV ÇUBUĞU -->
+<div class="xp-taskbar" id="taskbar">
+  <div class="xp-start-button" onclick="toggleStartMenu()">
+    <img src="assets/xp-start.png"  alt="Start" />
+  </div>
+
+  <div class="xp-taskbar-items" id="taskbarWindows">
+    <!-- Açık pencereler buraya JS ile ekleniyor -->
+  </div>
+
+  <div class="xp-tray">
+    <span class="xp-lang">TR</span>
+    <img src="assets/antivirüs.png" alt="Antivirüs" />
+    <img src="assets/wife.jpg" alt="WiFi" />
+   <span class="xp-clock" id="xpClock">--:--</span>
+  </div>
+</div>
+
+
+<!-- BAŞLAT MENÜSÜ -->
+<div class="xp-start-menu" id="startMenu">
+  <div class="start-header">
+    <img src="assets/profile.jpg" class="start-avatar" />
+    <span class="start-name">Muhammed Işık</span>
+  </div>
+
+  <div class="start-body">
+    <!-- Sol Panel -->
+    <div class="start-left">
+      <ul>
+        <li onclick="openWindow('about')">
+          <img src="assets/hakkımda.png" /> Hakkımda
+        </li>
+        <li onclick="openWindow('contact')">
+          <img src="assets/iletisim.jpg" /> İletişim
+        </li>
+        <li onclick="openWindow('projects')">
+          <img src="assets/projects.png" /> Projeler
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sağ Panel -->
+    <div class="start-right">
+      <ul>
+        <li><a href="https://linkedin.com/in/muhammed-ısık" target="_blank">
+          <img src="assets/linkedin.png" /> LinkedIn</a>
+        </li>
+        <li><a href="https://github.com/Mhmmdbey" target="_blank">
+          <img src="assets/github.png" /> GitHub</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Alt Butonlar -->
+<div class="start-footer">
+    <button type="button" id="restartBtn">
+  <img src="assets/logoff.png" style="height:24px; vertical-align:middle; margin-right:6px;">
+  Yeniden Başlat
+</button>
+
+   <button type="button" id="shutdownBtn">
+  <img src="assets/shutdown.png" style="height: 24px; vertical-align:middle; margin-right:6px;">
+  Kapat
+</button>
+
+  </div>
+</div>
+
+
+
+
+<!-- Projeler Ana Penceresi -->
+<div class="window" id="projects" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'projects')">
+    <span>Projeler</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('projects')">🗕</button>
+      <button onclick="maximizeWindow('projects')">🗖</button>
+      <button onclick="closeWindow('projects')">❌</button>
+    </div>
+  </div>
+  <div class="content">
+    <div class="project-folder">
+      <div class="folder-header" onclick="openProjectWindow('stokDetayWindow')">
+        📁 Stok Takip Sistemi
+      </div>
+    </div>
+
+    <div class="project-folder">
+      <div class="folder-header" onclick="openProjectWindow('yuzDetayWindow')">
+        📁 Yüz Tanıma 
+      </div>
+    </div>
+ 
+  <div class="project-folder">
+      <div class="folder-header" onclick="openProjectWindow('telefonDetayWindow')">
+        📁 Telefon Fiyat Tahmin Sistemi
+      </div>
+    </div>
+  <div class="project-folder">
+      <div class="folder-header" onclick="openProjectWindow('maceraDetayWindow')">
+        📁 Macera Oyunu
+      </div>
+    </div>
+    <div class="project-folder">
+      <div class="folder-header" onclick="openProjectWindow('photogramDetayWindow')">
+        📁 Hayvanlar Alemi "Sosyal Medya Uygulaması"
+      </div>
+    </div>
+    <div class="project-folder">
+      <div class="folder-header" onclick="openProjectWindow('geziDetayWindow')">
+        📁 BURFAŞ Mobil Uygulama Projesi
+      </div>
+    </div>
+</div>
+
+<!-- Stok Takip Detaylı Rapor Penceresi -->
+<div class="window" id="stokDetayWindow" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'stokDetayWindow')">
+    <span>📊 Stok Takip Sistemi - Detaylı Rapor</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('stokDetayWindow')">🗕</button>
+      <button onclick="maximizeWindow('stokDetayWindow')">🗖</button>
+      <button onclick="closeWindow('stokDetayWindow')">❌</button>
+    </div>
+  </div>
+  <div class="content about-content">
+     <div class="back-button" onclick="closeWindow('stokDetayWindow')" title="Geri Dön"></div>
+    <div class="about-left">
+  
+     
+      <h2>Stok Takip Sistemi</h2>
+      <h4>"Barutçu Tekstil"</h4>
+      
+
+      <div class="languages">
+        <h5>Kullanılan Teknolojiler</h5>
+        <ul class="language-list">
+          <li>C#</li>
+          <li>ADO.NET</li>
+          <li>Chart.js</li>
+          <li>JavaScript</li>
+          <li>HTML/CSS</li>
+          <li>jsQR</li>
+          <li>iTextSharp</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h5>📌 Proje Özeti</h5>
+      <p>
+        Staj sürecim boyunca, çalıştığım tekstil firmasında stok takibinin dijitalleştirilmesi amacıyla 
+      <strong>ASP.NET Web Forms</strong> ve <strong>SQL Server</strong> tabanlı bir web uygulaması geliştirdim. 
+      Bu platform, firmanın <strong>ham kumaş</strong> ve <strong>mamul kumaş</strong> stoklarının sistematik ve görsel olarak takibini sağlar.
+      </p>
+
+      <h5>🧮 Stok Takip Ekranı</h5>
+      <ul>
+        <li>Kalite kodu, renk, desen gibi kriterlere göre filtreleme</li>
+        <li>Stokları <strong>metre (Mt)</strong> ve <strong>kilogram (Kg)</strong> cinsinden listeleme</li>
+        <li><strong>Chart.js</strong> ile dairesel grafik görselleştirme</li>
+        <li><strong>Accordion</strong> ile gruplandırılmış listeleme</li>
+      </ul>
+
+      <h5>📷 QR Kod Okuma Ekranı</h5>
+      <ul>
+        <li>Barkod okutma ile ürün bilgisi alma (metre, kilo, kalite)</li>
+        <li>Çoklu QR okuma ve anlık listeleme</li>
+        <li><strong>iTextSharp</strong> ile PDF çıktısı alma</li>
+      </ul>
+
+      <h5>💡 Kazanımlar</h5>
+      <p>
+        Gerçek bir firmanın ihtiyaçlarına çözüm üreten bu sistem ile
+        <strong>proje geliştirme</strong>, <strong>ekip içi iletişim</strong> ve <strong>kurumsal yazılım geliştirme</strong> becerilerimi ileri seviyeye taşıdım.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="window" id="yuzDetayWindow" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'yuzDetayWindow')">
+    <span>🧠 Yüzden Duygu Tahmini - Detaylı Rapor</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('yuzDetayWindow')">🗕</button>
+      <button onclick="maximizeWindow('yuzDetayWindow')">🗖</button>
+      <button onclick="closeWindow('yuzDetayWindow')">❌</button>
+    </div>
+  </div>
+  <div class="content about-content">
+    <div class="back-button" onclick="closeWindow('yuzDetayWindow')" title="Geri Dön"></div>
+
+    <div class="about-left">
+      <h2>Duygu Tanıma Sistemi</h2>
+      <h4>Python + OpenCV + CNN</h4>
+
+      <div class="languages">
+        <h5>Kullanılan Teknolojiler</h5>
+        <ul class="language-list">
+          <li>Python</li>
+          <li>OpenCV</li>
+          <li>Keras</li>
+          <li>TensorFlow</li>
+          <li>Matplotlib</li>
+          <li>Derin Öğrenme</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h5>📌 Proje Özeti</h5>
+      <p>
+        Bu projede yüz ifadelerinden duygu analizi yapabilen bir sistem geliştirildi. 
+        Derin öğrenme teknikleri kullanılarak bireylerin yüzlerinden mutluluk, üzüntü, korku, öfke gibi ifadeleri tanıyan bir model oluşturuldu.
+      </p>
+
+      <h5>📷 Görüntü İşleme</h5>
+      <ul>
+        <li><strong>OpenCV</strong> ile yüz algılama ve görüntü ön işleme</li>
+        <li>Gri tonlama, yeniden boyutlandırma ve normalize etme işlemleri</li>
+      </ul>
+
+      <h5>🧠 Model Eğitimi</h5>
+      <ul>
+        <li><strong>CNN (Convolutional Neural Network)</strong> mimarisi ile model tasarımı</li>
+        <li>Keras kullanılarak modelin eğitim ve doğrulama süreçlerinin yönetimi</li>
+        <li><strong>Augmentasyon</strong> ve <strong>dropout</strong> ile aşırı öğrenmenin önüne geçildi</li>
+      </ul>
+
+      <h5>🎯 Sonuçlar</h5>
+      <ul>
+        <li>Model, test verisi üzerinde yüksek doğrulukla duygu tahmini yapabiliyor</li>
+        <li>Gerçek zamanlı kamera görüntüsünde yüzü tanıyıp tahmin yapabiliyor</li>
+      </ul>
+
+      <p>
+        Bu proje sayesinde derin öğrenme, görüntü işleme ve model değerlendirme konularında kapsamlı deneyim kazandım.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="window" id="telefonDetayWindow" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'telefonDetayWindow')">
+    <span>📱 Telefon Fiyat Tahmini - Detaylı Rapor</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('telefonDetayWindow')">🗕</button>
+      <button onclick="maximizeWindow('telefonDetayWindow')">🗖</button>
+      <button onclick="closeWindow('telefonDetayWindow')">❌</button>
+    </div>
+  </div>
+  <div class="content about-content">
+    <div class="back-button" onclick="closeWindow('telefonDetayWindow')" title="Geri Dön"></div>
+
+    <div class="about-left">
+      <h2>Telefon Fiyat Tahmin Sistemi</h2>
+      <h4>Python + Makine Öğrenmesi</h4>
+
+      <div class="languages">
+        <h5>Kullanılan Teknolojiler</h5>
+        <ul class="language-list">
+          <li>Python</li>
+          <li>Pandas</li>
+          <li>Scikit-learn</li>
+          <li>Linear Regression</li>
+          <li>Matplotlib</li>
+          <li>ML Pipeline</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h5>📌 Proje Özeti</h5>
+      <p>
+        Bu projede, telefon donanım özelliklerine göre piyasa fiyatını tahmin edebilen bir makine öğrenmesi modeli geliştirildi. 
+        Fiyat/performans analizleri yapılmasını sağlayan bir sistemdir.
+      </p>
+
+      <h5>📊 Veri Hazırlığı</h5>
+      <ul>
+        <li>Veriler <strong>Pandas</strong> kullanılarak temizlendi ve analiz edildi</li>
+        <li>Kategorik veriler sayısal değerlere dönüştürüldü (encoding)</li>
+        <li>Özellik seçimi (feature selection) ile en etkili girişler belirlendi</li>
+      </ul>
+
+      <h5>🧠 Modelleme</h5>
+      <ul>
+        <li><strong>Linear Regression</strong> modeli eğitildi</li>
+        <li>Modelin performansı grafiklerle <strong>Matplotlib</strong> kullanılarak görselleştirildi</li>
+        <li>Doğruluk oranı test setiyle kontrol edildi</li>
+      </ul>
+
+      <h5>🎯 Sonuçlar</h5>
+      <ul>
+        <li>Giriş verilerine göre tahmini fiyat çıktısı alınabiliyor</li>
+        <li>Gerçek fiyatlarla karşılaştırılarak tutarlılık sağlandı</li>
+      </ul>
+
+      <p>
+        Bu projeyle birlikte veri analizi, regresyon modeli kurma ve makine öğrenmesi algoritmalarını uygulama becerimi geliştirdim.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="window" id="maceraDetayWindow" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'maceraDetayWindow')">
+    <span>🎮 Macera Oyunu - Detaylı Rapor</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('maceraDetayWindow')">🗕</button>
+      <button onclick="maximizeWindow('maceraDetayWindow')">🗖</button>
+      <button onclick="closeWindow('maceraDetayWindow')">❌</button>
+    </div>
+  </div>
+  <div class="content about-content">
+    <div class="back-button" onclick="closeWindow('maceraDetayWindow')" title="Geri Dön"></div>
+
+    <div class="about-left">
+      <h2>Macera Oyunu</h2>
+      <h4>Java + OOP + Konsol</h4>
+
+      <div class="languages">
+        <h5>Kullanılan Teknolojiler</h5>
+        <ul class="language-list">
+          <li>Java</li>
+          <li>OOP (Sınıf, Kalıtım, Polimorfizm)</li>
+          <li>Scanner</li>
+          <li>Konsol Girişi/Çıkışı</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h5>📌 Proje Özeti</h5>
+      <p>
+        Bu projede Java diliyle nesne yönelimli programlama (OOP) temelli bir metin tabanlı macera oyunu geliştirildi. 
+        Oyuncu karakter seçip çeşitli düşmanlarla savaşıyor, ödül kazanıyor ve farklı bölgeleri keşfediyor.
+      </p>
+
+      <h5>⚔️ Oyun Mekanikleri</h5>
+      <ul>
+        <li>Oyuncu; <strong>Samuray, Okçu, Şövalye</strong> gibi karakterlerden birini seçebiliyor</li>
+        <li>Her karakterin <strong>hasar, can, para</strong> gibi farklı istatistikleri var</li>
+        <li><strong>Obstacle</strong> sınıfı ile düşmanlar tanımlandı (Zombi, Ayı, Vampir...)</li>
+      </ul>
+
+      <h5>🧱 Yapısal Özellikler</h5>
+      <ul>
+        <li>Sınıflar: Game, Player, Location, BattleLoc, ToolStore vb.</li>
+        <li><strong>Polimorfizm</strong> ile bölgeler arasında geçiş yapılabiliyor</li>
+        <li>Scanner ile kullanıcı girdisi alınıyor, oyun tamamen konsolda çalışıyor</li>
+      </ul>
+
+      <h5>🎯 Sonuçlar</h5>
+      <ul>
+        <li>Java OOP mantığı pratikte kullanıldı</li>
+        <li>Kapsülleme, kalıtım, method override gibi yapılar uygulandı</li>
+        <li>Yapılandırılmış, modüler ve okunabilir bir proje ortaya çıktı</li>
+      </ul>
+
+      <p>
+        Bu oyun sayesinde Java dilindeki nesne yönelimli programlama prensiplerini gerçek bir senaryoya entegre etmeyi başardım.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="window" id="photogramDetayWindow" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'photogramDetayWindow')">
+    <span>📷 Hayvanlar Alemi - Detaylı Rapor</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('photogramDetayWindow')">🗕</button>
+      <button onclick="maximizeWindow('photogramDetayWindow')">🗖</button>
+      <button onclick="closeWindow('photogramDetayWindow')">❌</button>
+    </div>
+  </div>
+  <div class="content about-content">
+    <div class="back-button" onclick="closeWindow('photogramDetayWindow')" title="Geri Dön"></div>
+
+    <div class="about-left">
+      <h2>Hayvanlar Alemi</h2>
+      <h4>Flutter + Firebase</h4>
+
+      <div class="languages">
+        <h5>Kullanılan Teknolojiler</h5>
+        <ul class="language-list">
+          <li>Flutter</li>
+          <li>Dart</li>
+          <li>Firebase Auth</li>
+          <li>Cloud Firestore</li>
+          <li>Provider</li>
+          <li>Responsive UI</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h5>📌 Proje Özeti</h5>
+<p>
+  Hayvanlar Alemi, insanların evcil hayvanlarını paylaşabildiği sosyal medya tarzında bir mobil uygulamadır. 
+  Kullanıcılar uygulamaya kayıt olarak hayvanlarına ait fotoğrafları yükleyebilir, diğer kullanıcıların gönderilerini görüntüleyebilir ve etkileşimde bulunabilir.
+  Hayvansever topluluğunu bir araya getirmeyi amaçlayan bu platform, <strong>Flutter</strong> ve <strong>Firebase</strong> teknolojileri kullanılarak geliştirilmiştir.
+</p>
+
+
+      <h5>🔑 Özellikler</h5>
+      <ul>
+        <li>Kayıt ve giriş sistemi (Firebase Authentication)</li>
+        <li>Gönderi oluşturma ve paylaşma</li>
+        <li>Veritabanı işlemleri (Cloud Firestore)</li>
+        <li>Responsive ve modern UI tasarımı</li>
+      </ul>
+
+      <h5>⚙️ Teknik Detaylar</h5>
+      <ul>
+        <li><strong>Provider</strong> ile state management</li>
+        <li>Gerçek zamanlı veri akışı</li>
+        <li>Mobil ekranlara uygun layout yapısı</li>
+      </ul>
+
+      <p>
+        Bu proje sayesinde mobil uygulama mimarisi, Firebase entegrasyonu ve modern UI tasarımı üzerine pratik kazandım.
+        Aynı zamanda kullanıcı deneyimi ve görsel tasarım dengesini kurmayı öğrendim.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="window" id="geziDetayWindow" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'geziDetayWindow')">
+    <span>🗺️ Yapay Zekâ Destekli Gezi Planlayıcı (BURFAŞ)</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('geziDetayWindow')">🗕</button>
+      <button onclick="maximizeWindow('geziDetayWindow')">🗖</button>
+      <button onclick="closeWindow('geziDetayWindow')">❌</button>
+    </div>
+  </div>
+
+  <div class="content about-content">
+    <div class="back-button" onclick="closeWindow('geziDetayWindow')" title="Geri Dön"></div>
+
+    <div class="about-left">
+      
+      <h2>Gezi Planlama Uygulaması</h2>
+      <h4>Android + Yapay Zeka</h4>
+
+      <div class="languages">
+        <h5>Kullanılan Teknolojiler</h5>
+        <ul class="language-list">
+          <li>Kotlin</li>
+          <li>Jetpack Compose</li>
+          <li>Firebase</li>
+          <li>Yapay Zekâ Öneri Sistemi</li>
+          <li>Konum Servisleri</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h5>📌 Proje Özeti</h5>
+      <p>
+        Teknoloji, günümüzde pek çok alana yayılmış ve hem görünür hem de görünmez alanlarda insan yükünü hafifletmektedir.
+        Özellikle mobil uygulamalar; eğitim, sağlık, eğlence ve sosyal yaşam gibi birçok alanda insanlara kolaylık sağlamaktadır.
+      </p>
+
+      <p>
+        Geliştirmekte olduğumuz bu mobil uygulama, şehir hayatının stresinden uzaklaşmak isteyen bireyler için yapay zekâ destekli bir
+        <strong>gezi ve etkinlik planlayıcı</strong> olarak tasarlanmıştır. Kullanıcıların stres düzeyine ve ruh hâline göre
+        <strong>kişiselleştirilmiş rota önerileri</strong> sunmaktadır.
+      </p>
+
+      <h5>🎯 Uygulama Özellikleri</h5>
+      <ul>
+        <li>Stres ve duygu durumuna göre yapay zekâ önerileri</li>
+        <li>Doğal güzellikler, tarihi alanlar ve sakin gezi noktaları</li>
+        <li>Konum tabanlı gezi rotaları</li>
+        <li>Kullanıcı ilgi alanlarına göre öneriler</li>
+      </ul>
+
+      <p>
+        Kullanıcılar, doğanın saklı güzelliklerinden şehirlerin keşfedilmemiş köşelerine kadar öneriler alarak
+        <strong>kendilerini keşfetme ve şehirle bağ kurma</strong> fırsatı yakalayacaklardır.
+        Modern yaşamın temposundan uzaklaşıp huzurlu bir deneyim elde etmeleri hedeflenmiştir.
+      </p>
+
+      <div style="background-color: #fff6f6; padding: 10px; margin-top: 20px; border-left: 4px solid crimson; border-radius: 6px;">
+  <strong>Not:</strong> Bu proje, <strong>TÜBİTAK başvurusu kapsamında</strong> geliştirilmek üzere planlanmış ancak 
+  gerekli onay süreci tamamlanamadığı için <strong>geliştirme aşamasında durdurulmuştur</strong>. 
+  Uygulama, <strong>BURFAŞ (Bursa Belediyesi Sosyal Tesisleri)</strong> için tasarlanmıştır.
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+ 
+<script src="script.js"></script>
+<script>
+  // Buraya önceden yazdığın tüm fonksiyonlar gelecek...
+
+  // Bu ikisini en sona ekle
+  document.getElementById("restartBtn").addEventListener("click", () => {
+    location.reload();
+  });
+
+  document.getElementById("shutdownBtn").addEventListener("click", () => {
+  const sound = document.getElementById("shutdownSound");
+  sound.currentTime = 0;
+  sound.play().then(() => {
+    // Ses çaldıktan sonra ekranı kapat
+    setTimeout(() => {
+      document.body.innerHTML = `
+        <div style="background:black;height:100vh;display:flex;justify-content:center;align-items:center;">
+          <h1 style="color:white;text-align:center;">CV Kapatıldı. İncelediğiniz İçin Teşekkürler!</h1>
+        </div>
+      `;
+      setTimeout(() => {
+        window.open('', '_self');
+        window.close();
+      }, 2000);
+    }, 3000); // Ses çaldıktan sonra biraz bekle
+  }).catch((err) => {
+    console.log("Ses çalınamadı:", err);
+    // Yine de kapat
+    document.body.innerHTML = `
+      <div style="background:black;height:100vh;display:flex;justify-content:center;align-items:center;">
+        <h1 style="color:white;text-align:center;">CV Kapatıldı. İncelediğiniz İçin Teşekkürler!</h1>
+      </div>
+    `;
+    setTimeout(() => {
+      window.open('', '_self');
+      window.close();
+    }, 2000);
+  });
+});
+
+</script>
+  <audio id="shutdownSound" src="assets/windows-shutdown.mp3"></audio>
+
+</body>
+</html>
