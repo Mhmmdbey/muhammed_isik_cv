@@ -261,6 +261,11 @@
   </div>
   <div class="content">
     <div class="project-folder">
+      <div class="folder-header" onclick="openProjectWindow('tekstilErpDetayWindow')">
+        📁 Tekstil Ticari (ERP Sistemi)
+      </div>
+    </div>
+    <div class="project-folder">
       <div class="folder-header" onclick="openProjectWindow('stokDetayWindow')">
         📁 Stok Takip Sistemi
       </div>
@@ -292,6 +297,70 @@
         📁 BURFAŞ Mobil Uygulama Projesi
       </div>
     </div>
+</div>
+<div class="window" id="tekstilErpDetayWindow" style="display: none;">
+  <div class="title-bar" onmousedown="startDrag(event, 'tekstilErpDetayWindow')">
+    <span>🧾 Tekstil Ticari - Mini ERP Sistemi</span>
+    <div class="buttons">
+      <button onclick="minimizeWindow('tekstilErpDetayWindow')">🗕</button>
+      <button onclick="maximizeWindow('tekstilErpDetayWindow')">🗖</button>
+      <button onclick="closeWindow('tekstilErpDetayWindow')">❌</button>
+    </div>
+  </div>
+
+  <div class="content about-content">
+    <div class="back-button" onclick="closeWindow('tekstilErpDetayWindow')" title="Geri Dön"></div>
+
+    <div class="about-left">
+      <h2>Tekstil Ticari</h2>
+      <h4>Mini ERP / Ticari Otomasyon</h4>
+
+      <div class="languages">
+        <h5>Kullanılan Teknolojiler</h5>
+        <ul class="language-list">
+          <li>C# (.NET WinForms)</li>
+          <li>SQL Server</li>
+          <li>Dapper</li>
+          <li>ADO.NET</li>
+          <li>PdfSharp / iTextSharp</li>
+          <li>Katmanlı Mimari</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h5>📌 Proje Özeti</h5>
+      <p>
+        Tekstil sektöründe faaliyet gösteren işletmelerin temel ticari süreçlerini tek bir çatı altında toplamak amacıyla
+        geliştirdiğim <strong>mini ERP / ticari otomasyon</strong> uygulamasıdır. Cari, stok, fatura ve çek/senet gibi
+        modülleri birbiriyle entegre şekilde çalışacak biçimde tasarladım.
+      </p>
+
+      <h5>🧱 Ana Modüller</h5>
+      <ul>
+        <li><strong>Cari Yönetimi:</strong> Müşteri tedarikçi kartları, bakiye takibi, hareket geçmişi.</li>
+        <li><strong>Fatura Modülü:</strong> Alış / satış faturaları, stok bağlantılı satır yapısı, KDV ve genel toplam hesaplama.</li>
+        <li><strong>Stok Yönetimi:</strong> Ürün kartları, miktar takibi, metraj/tonaj gibi tekstile özel alanlar.</li>
+        <li><strong>Çek / Senet:</strong> Bordro, giriş/çıkış işlemleri, vade ve durum takibi.</li>
+        <li><strong>PDF Çıktıları:</strong> Fatura ve dekontların PDF formatında profesyonel tasarımla üretilmesi.</li>
+      </ul>
+
+      <h5>⚙️ Teknik Özellikler</h5>
+      <ul>
+        <li><strong>Katmanlı mimari:</strong> Data, Domain ve UI katmanları ayrıştırıldı.</li>
+        <li><strong>Dapper</strong> ile performanslı SQL sorguları ve repository mantığı.</li>
+        <li><strong>SQL Server</strong> üzerinde ilişkisel veri modeli (Cari, Fatura, FaturaSatır, ÇekSenet vb.).</li>
+        <li>Kullanıcı dostu <strong>WinForms</strong> arayüzü, DataGridView üzerinden filtreleme ve düzenleme.</li>
+      </ul>
+
+      <h5>🎯 Kazanımlar</h5>
+      <p>
+        Bu proje ile gerçek bir tekstil firmasının ihtiyaçlarını analiz edip, uçtan uca bir ticari otomasyon
+        geliştirme deneyimi kazandım. Hem <strong>veritabanı tasarımı</strong> hem de <strong>masaüstü uygulama
+        geliştirme</strong> konusunda güçlü bir pratik elde ettim.
+      </p>
+    </div>
+  </div>
 </div>
 
 <!-- Stok Takip Detaylı Rapor Penceresi -->
@@ -726,4 +795,5 @@
 
 </body>
 </html>
+
 
